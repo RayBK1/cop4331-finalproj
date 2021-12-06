@@ -49,7 +49,7 @@ public class LoginPage implements ActionListener {
     loginFrame.add(passwordJField);
     loginFrame.add(usernameJLabel);
     loginFrame.add(passwordJLabel);
-    loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    loginFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     loginFrame.setSize(400,400);
     loginFrame.setLayout(null);
     loginFrame.setVisible(true);
@@ -65,12 +65,14 @@ public class LoginPage implements ActionListener {
                 User current = it.next();
                 if (current.getUsername().equals(username) && current.getPassword().equals(password)){
                     popupText.setText("login successful");
-                    loginFrame.dispose();
                     if (current.getAccountPurpose().equals("seller")){
                         SellerHomePage sellerPage = new SellerHomePage(current);
+                        loginFrame.dispose();
+                        
                     }
                     else{
                         BuyerHomePage buyerPage = new BuyerHomePage(current);
+                        loginFrame.dispose();
                     }
                 }
                 else 

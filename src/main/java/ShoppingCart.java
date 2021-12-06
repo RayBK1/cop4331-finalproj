@@ -1,4 +1,7 @@
 
+import java.util.LinkedList;
+
+
 
 /**
  *
@@ -9,8 +12,10 @@
 public class ShoppingCart {
     public double totalCost = 0;
     public double discount = 0;
+    public int quantity = 0;
+    LinkedList<Product> shoppingCart = new LinkedList<>();
     ShoppingCart(){
-    
+        //not sure if anything needs to be constructed in a shopping cart, maybe a linkedlist of the products?
     }
     
     public double cost(Product product){

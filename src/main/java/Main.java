@@ -19,9 +19,9 @@ public class Main {
     public static void main(String[] args) {
         final LinkedList<User> userList = new LinkedList<>();
         final LinkedList<Product> productList = new LinkedList<>();
-        User jake = new User("jake","123","seller"); 
+        User jake = new User("arman","123","seller"); 
         userList.add(jake);
-        User james = new User("james","123","buyer");
+        User james = new User("mariam","123","buyer");
         userList.add(james);
         LoginPage loginpage = new LoginPage(userList);
         Product lights = new Product("christmas lights",5,12.43);
