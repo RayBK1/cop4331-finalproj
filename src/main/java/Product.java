@@ -16,7 +16,7 @@ public class Product {
         this.productPrice = price;
         this.productID = setProductID(this.productName);
     }
-    public static int setProductID(String name){
+    public final int setProductID(String name){
         int h = 0;
         for (int i = 0; i < name.length(); i++) {
             h = 31 * h + name.charAt(i);

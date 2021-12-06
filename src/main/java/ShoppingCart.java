@@ -7,8 +7,8 @@
 
 
 public class ShoppingCart {
-    public double totalCost;
-    public double discount;
+    public double totalCost = 0;
+    public double discount = 0;
     ShoppingCart(){
     
     }
