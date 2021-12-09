@@ -20,8 +20,10 @@ public class Product implements Serializable {
     private final double productRating;
     private final double productPopularity;
     private double productInvoicePrice;
-    private double productRevenue;
-    private double productProfitMargin;
+    private double totalRevenue;
+    private double profitMargin;
+    private double totalSales; 
+    private double totalCosts;
     
     Product(String name, String description, double sellingPrice, int quantity,
             String category, double rating, double popularity,
@@ -35,9 +37,11 @@ public class Product implements Serializable {
         this.productRating = rating;
         this.productPopularity = popularity;
         this.productInvoicePrice = invoicePrice;
-        this.productRevenue = revenue;
-        this.productProfitMargin = profitMargin;
+        this.totalRevenue = revenue;
+        this.profitMargin = profitMargin;
         this.productID = setProductID(this.productName);
+        this.totalSales = 0;
+        this.totalCosts = 0;
     }
     
     public final int setProductID(String name){
@@ -64,6 +68,18 @@ public class Product implements Serializable {
     }
     public double getProductRating() {
         return this.productRating;
+    }
+    public double getTotalSales() {
+        return this.totalSales;
+    }
+    public double getTotalCosts() {
+        return this.totalCosts;
+    }
+    public void updateTotalSales(){
+        this.totalSales += this.productSellingPrice;
+    }
+    public void updateTotalCosts() {
+        this.totalCosts += this.productInvoicePrice;
     }
     public void updateProductQuantity(int quantity){
         this.productQuantity = quantity;

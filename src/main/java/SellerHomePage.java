@@ -64,7 +64,9 @@ public class SellerHomePage {
             });
             
             viewSellDataButton.addActionListener((ActionEvent event) ->{
-                ViewSellData popup = new ViewSellData(user);
+                system.setState(5);
+                system.changeState();
+                sellerHomeFrame.dispose();
             });
             
             yourAccount.addActionListener((ActionEvent event) -> {
@@ -72,7 +74,7 @@ public class SellerHomePage {
                    system.changeState();
                    sellerHomeFrame.dispose();
            });
-            
+            sellerHomeFrame.add(viewSellDataButton);
             sellerHomeFrame.add(addProductButton);
             sellerHomeFrame.add(productListings);
             sellerHomeFrame.add(welcomeUser);

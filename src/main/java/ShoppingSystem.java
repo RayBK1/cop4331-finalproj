@@ -99,12 +99,12 @@ public class ShoppingSystem {
     
     public void checkout()
     {
-        
+       // CheckoutPage checkout = new CheckoutPage(this.currentUser, this,)
     }
     
     public void selldata()
     {
-        
+        ViewSellData selldata = new ViewSellData(this.currentUser, this);
     }
     
     public void create()

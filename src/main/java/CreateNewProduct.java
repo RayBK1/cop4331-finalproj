@@ -24,6 +24,7 @@ public class CreateNewProduct {
         JLabel productSellPriceLabel = new JLabel("Enter Product Sell Price:");
         JLabel productQuantityLabel = new JLabel("Enter Product Quantity:");
         JButton createButton = new JButton("Create Product");
+        JButton backButton = new JButton("Go back");
         
         JTextField nameField = new JTextField();
         JTextField categoryField = new JTextField();
@@ -36,6 +37,7 @@ public class CreateNewProduct {
         productQuantityLabel.setBounds(200,300,200,50);
         productInvoicePriceLabel.setBounds(200,400,200,50);
         productSellPriceLabel.setBounds(200,500,200,50);
+        backButton.setBounds(100,600,200,50);
         
         nameField.setBounds(400, 100, 100, 50);
         categoryField.setBounds(400, 200, 100, 50);
@@ -57,6 +59,10 @@ public class CreateNewProduct {
             popUpFrame.dispose();
             
         });
+        
+        backButton.addActionListener( (ActionEvent event) ->{
+            popUpFrame.dispose();
+        });
         popUpFrame.add(productNameLabel);
         popUpFrame.add(productCategoryLabel);
         popUpFrame.add(productQuantityLabel);
@@ -70,7 +76,7 @@ public class CreateNewProduct {
         popUpFrame.add(quantityField);
         
         popUpFrame.add(createButton);
-        
+        popUpFrame.add(backButton);
         popUpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         popUpFrame.setSize(600,800);
         popUpFrame.setLayout(null);
