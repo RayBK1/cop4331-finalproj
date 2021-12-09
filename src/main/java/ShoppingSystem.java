@@ -18,6 +18,8 @@ public class ShoppingSystem {
     private static final int CART = 2;
     private static final int PROFILE = 3;
     private static final int CHECKOUT = 4;
+    private static final int SELLDATA = 5;
+    private static final int CREATE = 6;
     
     public ShoppingSystem(UserList<User> userList)
     {
@@ -59,6 +61,10 @@ public class ShoppingSystem {
             profile();
         else if (state == CHECKOUT)
             checkout();
+        else if (state == SELLDATA)
+            selldata();
+        else if (state == CREATE)
+            create();
     }
     
     public void login()
@@ -94,5 +100,15 @@ public class ShoppingSystem {
     public void checkout()
     {
         
+    }
+    
+    public void selldata()
+    {
+        
+    }
+    
+    public void create()
+    {
+        CreateNewProduct newproduct = new CreateNewProduct(this.currentUser,this);
     }
 }
