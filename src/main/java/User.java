@@ -1,3 +1,6 @@
+
+import java.io.*;
+
     
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -9,7 +12,7 @@
  *
  * @author Ray
  */
-public final class User {
+public class User implements Serializable {
     private final String accountPurpose; //says whether buyer or seller
     private String username;
     private String password;
