@@ -13,8 +13,9 @@ public class Seller extends User {
     
     public Seller(String username, String password, String accountPurpose, ProductList<Product> productList) {
         super(username, password, accountPurpose);
-        for (Product p:productList)
+        productList.forEach(p -> {
             listedProducts.add(p);
+        });
     }
     public void addToListedProducts(Product product)
     {

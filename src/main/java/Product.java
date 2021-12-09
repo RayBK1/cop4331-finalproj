@@ -14,14 +14,14 @@ public class Product implements Serializable {
     private final String productName;
     private final String productDescription;
     private final int productID;
-    private final double productSellingPrice;
-    private final int productQuantity;
+    private double productSellingPrice;
+    private int productQuantity;
     private final String productCategory;
     private final double productRating;
     private final double productPopularity;
-    private final double productInvoicePrice;
-    private final double productRevenue;
-    private final double productProfitMargin;
+    private double productInvoicePrice;
+    private double productRevenue;
+    private double productProfitMargin;
     
     Product(String name, String description, double sellingPrice, int quantity,
             String category, double rating, double popularity,
@@ -64,6 +64,15 @@ public class Product implements Serializable {
     }
     public double getProductRating() {
         return this.productRating;
+    }
+    public void updateProductQuantity(int quantity){
+        this.productQuantity = quantity;
+    }
+    public void updateProductInvoicePrice(double invoice){
+        this.productInvoicePrice = invoice;
+    }
+    public void updateProductSellPrice(double sell){
+        this.productSellingPrice = sell;
     }
     @Override
     public String toString(){

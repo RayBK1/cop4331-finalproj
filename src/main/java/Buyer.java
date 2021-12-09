@@ -15,23 +15,23 @@ public class Buyer extends User {
     HashMap<Product, Integer> cartHashMap = new HashMap<>();   
     public Buyer(String username, String password, String accountPurpose) {
         super(username, password, accountPurpose);
-        ShoppingCart<> shoppingCartProducts = new ShoppingCart<>();
+        //ShoppingCart<> shoppingCartProducts = new ShoppingCart<>();
     }
     
     public void addItemToCart(Product product, Integer quantity)
     {
         cartHashMap.put(product,quantity);
-        this.shoppingCartProducts.add(cartHashMap);
+       // this.shoppingCartProducts.add(cartHashMap);
         cartHashMap.clear();
     }
     
     public void removeItemFromCart(Product product)
     {
-        this.shoppingCartProducts.remove(product);
+        //this.shoppingCartProducts.remove(product);
     }
     
-    public ShoppingCart<HashMap> getShoppingCartProducts()
+   // public ShoppingCart<HashMap> getShoppingCartProducts()
     {
-        return this.shoppingCartProducts;
+        //return this.shoppingCartProducts;
     }
 }

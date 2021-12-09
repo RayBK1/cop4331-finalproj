@@ -25,15 +25,19 @@ public class BuyerHomePage {
     int i = 200;
     BuyerHomePage(User user, ShoppingSystem system){
         for (Product p: system.getProductList()){
+            
             JLabel productLabel = new JLabel();
             productLabel.setText(p.getProductName());
             JButton viewMoreInfoButton = new JButton();
             JButton addToCartButton = new JButton();
+            
             viewMoreInfoButton.setText("View more info");
             addToCartButton.setText("Add to cart");
+            
             productLabel.setBounds(150,i,200,50);
             viewMoreInfoButton.setBounds(350,i,200,50);
             addToCartButton.setBounds(550,i,200,50);
+            
             viewMoreInfoButton.addActionListener( (ActionEvent event) ->{
                ViewMoreInfoPopUp popup = new ViewMoreInfoPopUp(p); 
             });

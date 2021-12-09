@@ -1,5 +1,6 @@
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 
@@ -25,7 +26,7 @@ public class ShoppingCart extends LinkedHashMap<Product, Integer> {
     public void createHash(Product product, Integer quantity){
         HashMap<Product, Integer> cartHashMap = new HashMap<>();
         cartHashMap.put(product, quantity);
-        ShoppingCart.put(cartHashMap);
+        //ShoppingCart.put(cartHashMap);
     }
     public double addCostOfProduct(Product product){
         totalCost += product.getProductPrice();

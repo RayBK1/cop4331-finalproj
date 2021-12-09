@@ -20,24 +20,55 @@ public class SellerHomePage {
     JButton yourAccount = new JButton("Your Account");
     JLabel welcomeUser = new JLabel();
     JLabel productListings = new JLabel("Your Listings");
-
+    JButton addProductButton = new JButton("Add a product");
+    int i = 200;
     LinkedList<Product> productList = new LinkedList<>();
     SellerHomePage (User user, ShoppingSystem system){
-        welcomeUser.setText("Welcome, " + user.getUsername());
-        welcomeUser.setBounds(0,0,600,20);
-        yourAccount.setBounds(400,0,400,20);
-        productListings.setBounds(333,100,600,20);
-        yourAccount.addActionListener((ActionEvent event) -> {
-               system.setState(3);
-               system.changeState();
-               sellerHomeFrame.dispose();
-       });
-        sellerHomeFrame.add(productListings);
-        sellerHomeFrame.add(welcomeUser);
-        sellerHomeFrame.add(yourAccount);
-        sellerHomeFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        sellerHomeFrame.setSize(800,800);
-        sellerHomeFrame.setLayout(null);
-        sellerHomeFrame.setVisible(true);
-    }
+        Seller seller = (Seller) user;
+        for (Product p: seller.getListedProducts()){
+
+                    JLabel productLabel = new JLabel();
+                    productLabel.setText(p.getProductName());
+                    JButton viewMoreInfoButton = new JButton();
+                    JButton updateButton = new JButton();
+                    viewMoreInfoButton.setText("View more info");
+                    updateButton.setText("Update product");
+
+                    productLabel.setBounds(150,i,200,50);
+                    viewMoreInfoButton.setBounds(350,i,200,50);
+                    updateButton.setBounds(550,i,200,50);
+
+                    viewMoreInfoButton.addActionListener( (ActionEvent event) ->{
+                       ViewMoreInfoPopUp popup = new ViewMoreInfoPopUp(p); 
+                    });
+                    updateButton.addActionListener( (ActionEvent event) -> {
+                        AddToCartPopUp popup = new AddToCartPopUp(user, p);
+                    });
+                    sellerHomeFrame.add(productLabel);
+                    sellerHomeFrame.add(viewMoreInfoButton);
+                    sellerHomeFrame.add(updateButton);
+                    i += 100;
+                }
+        
+            welcomeUser.setText("Welcome, " + user.getUsername());
+            welcomeUser.setBounds(0,0,600,20);
+            yourAccount.setBounds(400,0,400,20);
+            productListings.setBounds(333,100,600,20);
+            addProductButton.setBounds(400,740,400,20);
+            
+            yourAccount.addActionListener((ActionEvent event) -> {
+                   system.setState(3);
+                   system.changeState();
+                   sellerHomeFrame.dispose();
+           });
+            
+            sellerHomeFrame.add(addProductButton);
+            sellerHomeFrame.add(productListings);
+            sellerHomeFrame.add(welcomeUser);
+            sellerHomeFrame.add(yourAccount);
+            sellerHomeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            sellerHomeFrame.setSize(800,800);
+            sellerHomeFrame.setLayout(null);
+            sellerHomeFrame.setVisible(true);
+        }
 }
