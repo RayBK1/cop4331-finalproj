@@ -34,7 +34,9 @@ public class ShoppingSystem {
         }
         changeState();
     }
-    
+    public ProductList<Product> getProductList(){
+        return this.productList;
+    }
     public void setUser(User user)
     {
         this.currentUser = user;
@@ -66,7 +68,12 @@ public class ShoppingSystem {
     
     public void homepage()
     {
-        System.out.println(currentUser.getClass());
+        if (this.currentUser.getClass().getSimpleName().equals("Seller")){
+            SellerHomePage sellerhomepage = new SellerHomePage(this.currentUser, this);
+        }
+        else{
+            BuyerHomePage buyerhomepage = new BuyerHomePage(this.currentUser,this);
+        }
     }
     
     public void cart()
@@ -76,7 +83,12 @@ public class ShoppingSystem {
     
     public void profile()
     {
-        
+        if (this.currentUser.getClass().getSimpleName().equals("Seller")){
+            SellerAccountPage selleraccountpage = new SellerAccountPage(this.currentUser, this);
+        }
+        else{
+            BuyerAccountPage buyeraccountpage = new BuyerAccountPage(this.currentUser,this);
+        }    
     }
     
     public void checkout()

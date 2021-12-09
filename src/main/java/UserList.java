@@ -9,6 +9,7 @@ import java.util.*;
 /**
  *
  * @author garre
+ * @param <E>
  */
 public class UserList<E> extends LinkedList<E> {
     public User queryUsers(String username, String password)

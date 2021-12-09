@@ -9,7 +9,7 @@
  * @author Raymon
  */
 public class CheckoutPage {
-    CheckoutPage(User user){
+    CheckoutPage(User user, System system){
         
     }
 }

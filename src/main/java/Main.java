@@ -42,15 +42,17 @@ public class Main {
         productList.add(new Product("Nikita", 10, 11, "Person"));
         productList.add(new Product("Couch", 15, 300, "Furniture"));
         productList.add(new Product("A", 15, 21, "Furniture"));*/
-        
+        ProductList<Product> allProducts = new ProductList<>();
         ProductList<Product> productList1 = new ProductList<>();
         productList1.add(new Product("Chair", "Filler", 3.00, 5, "Furniture", 5, 10, 1, 15, 7));
         productList1.add(new Product("Table", "Filler", 15.00, 5, "Furniture", 0, 0, 0, 0, 0));
-        
+        allProducts.add(new Product("Chair", "Filler", 3.00, 5, "Furniture", 5, 10, 1, 15, 7));
+        allProducts.add(new Product("Table", "Filler", 15.00, 5, "Furniture", 0, 0, 0, 0, 0));
         ProductList<Product> productList2 = new ProductList<>();
         productList2.add(new Product("Tree", "Filler", 3.00, 5, "Christmas", 0, 0, 0, 0, 0));
         productList2.add(new Product("Lights", "Filler", 3.00, 5, "Christmas", 0, 0, 0, 0, 0));
-        
+        allProducts.add(new Product("Tree", "Filler", 3.00, 5, "Christmas", 0, 0, 0, 0, 0));
+        allProducts.add(new Product("Lights", "Filler", 3.00, 5, "Christmas", 0, 0, 0, 0, 0));
         
         UserList<User> userList = new UserList<>();
         User jake = new Seller("arman","123","seller", productList1); 

@@ -15,7 +15,7 @@ import javax.swing.*;
  *
  * @author Ray
  */
-public class LoginPage implements ActionListener {
+/*public class LoginPage implements ActionListener {
     
     JFrame loginFrame = new JFrame();
     
@@ -82,4 +82,4 @@ public class LoginPage implements ActionListener {
             }
         }
     }
-}
+}*/
