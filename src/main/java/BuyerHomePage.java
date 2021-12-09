@@ -27,15 +27,22 @@ public class BuyerHomePage {
         for (Product p: system.getProductList()){
             JLabel productLabel = new JLabel();
             productLabel.setText(p.getProductName());
-            JButton productButton = new JButton();
-            productButton.setText("View more info");
-            productLabel.setBounds(200,i,200,50);
-            productButton.setBounds(500,i,200,50);
-            productButton.addActionListener( (ActionEvent event) ->{
+            JButton viewMoreInfoButton = new JButton();
+            JButton addToCartButton = new JButton();
+            viewMoreInfoButton.setText("View more info");
+            addToCartButton.setText("Add to cart");
+            productLabel.setBounds(150,i,200,50);
+            viewMoreInfoButton.setBounds(350,i,200,50);
+            addToCartButton.setBounds(550,i,200,50);
+            viewMoreInfoButton.addActionListener( (ActionEvent event) ->{
                ViewMoreInfoPopUp popup = new ViewMoreInfoPopUp(p); 
             });
+            addToCartButton.addActionListener( (ActionEvent event) -> {
+                AddToCartPopUp popup = new AddToCartPopUp(user, p);
+            });
             buyerHomeFrame.add(productLabel);
-            buyerHomeFrame.add(productButton);
+            buyerHomeFrame.add(viewMoreInfoButton);
+            buyerHomeFrame.add(addToCartButton);
             i += 100;
         }
         welcomeUser.setText("Welcome, " + user.getUsername());

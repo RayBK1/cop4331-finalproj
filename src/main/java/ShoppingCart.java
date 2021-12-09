@@ -1,4 +1,5 @@
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 
@@ -9,18 +10,24 @@ import java.util.LinkedList;
  */
 
 
-public class ShoppingCart<E> extends LinkedList<E>  {
+public class ShoppingCart extends LinkedHashMap<Product, Integer> {
     public double totalCost = 0;
     public double discount = 0;
     public int quantity = 0;
     
-    public boolean add(E e)
+    /*@Override
+    public boolean add(Product product, Integer quantity)
     {
         Product a = (Product) e;
         totalCost += a.getProductPrice();
         return super.add(e);
+    }*/
+    public void createHash(Product product, Integer quantity){
+        HashMap<Product, Integer> cartHashMap = new HashMap<>();
+        cartHashMap.put(product, quantity);
+        ShoppingCart.put(cartHashMap);
     }
-    public double cost(Product product){
+    public double addCostOfProduct(Product product){
         totalCost += product.getProductPrice();
         return totalCost;
     }
