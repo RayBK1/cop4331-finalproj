@@ -12,26 +12,19 @@ import java.util.LinkedHashMap;
  * @author garre
  */
 public class Buyer extends User {
-    HashMap<Product, Integer> cartHashMap = new HashMap<>();   
+    ShoppingCart<ShoppingCartEntry> shoppingCart = new ShoppingCart<>();   
     public Buyer(String username, String password, String accountPurpose) {
         super(username, password, accountPurpose);
         //ShoppingCart<> shoppingCartProducts = new ShoppingCart<>();
     }
     
-    public void addItemToCart(Product product, Integer quantity)
+    public ShoppingCart<ShoppingCartEntry> getCart()
     {
-        cartHashMap.put(product,quantity);
-       // this.shoppingCartProducts.add(cartHashMap);
-        cartHashMap.clear();
+        return shoppingCart;
     }
     
     public void removeItemFromCart(Product product)
     {
         //this.shoppingCartProducts.remove(product);
-    }
-    
-   // public ShoppingCart<HashMap> getShoppingCartProducts()
-    {
-        //return this.shoppingCartProducts;
     }
 }

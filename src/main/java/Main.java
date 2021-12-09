@@ -54,6 +54,11 @@ public class Main {
         allProducts.add(new Product("Tree", "Filler", 3.00, 5, "Christmas", 0, 0, 0, 0, 0));
         allProducts.add(new Product("Lights", "Filler", 3.00, 5, "Christmas", 0, 0, 0, 0, 0));
         
+        
+        Product lol1 = new Product("Chair", "Filler", 3.00, 5, "Furniture", 5, 10, 1, 15, 7);
+        Product lol2 = new Product("Chair", "Filler", 3.00, 5, "Furniture", 5, 10, 1, 15, 7);
+        System.out.println(lol1.equals(lol2));
+        
         UserList<User> userList = new UserList<>();
         User jake = new Seller("arman","123","seller", productList1); 
         userList.add(jake);

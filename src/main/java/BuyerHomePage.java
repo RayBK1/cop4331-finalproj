@@ -23,7 +23,7 @@ public class BuyerHomePage {
     JLabel productListings = new JLabel("Available Products");
     LinkedList<Product> productList = new LinkedList<>();
     int i = 200;
-    BuyerHomePage(User user, ShoppingSystem system){
+    BuyerHomePage(Buyer user, ShoppingSystem system){
         for (Product p: system.getProductList()){
             
             JLabel productLabel = new JLabel();

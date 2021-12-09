@@ -12,7 +12,7 @@ import javax.swing.*;
  * @author Raymon
  */
 public class AddToCartPopUp {
-    AddToCartPopUp(User user, Product p){
+    AddToCartPopUp(Buyer user, Product p){
         
         JFrame popUpFrame = new JFrame();
         
@@ -37,11 +37,9 @@ public class AddToCartPopUp {
                 
             }
             else {
-                for (int i = 0; i < quantity; i++){
-                    // user.addItemToCart(p); // add cost of product to total sum quantity amount of times
-                    // add product to linked list
+                ShoppingCart<ShoppingCartEntry> cart = user.getCart();
+                cart.addItem(p, quantity);
                 }
-            }
         });
         cancelButton.addActionListener( (ActionEvent event) -> {
             popUpFrame.dispose();

@@ -72,7 +72,7 @@ public class ShoppingSystem {
             SellerHomePage sellerhomepage = new SellerHomePage(this.currentUser, this);
         }
         else{
-            BuyerHomePage buyerhomepage = new BuyerHomePage(this.currentUser,this);
+            BuyerHomePage buyerhomepage = new BuyerHomePage((Buyer) this.currentUser,this);
         }
     }
     
