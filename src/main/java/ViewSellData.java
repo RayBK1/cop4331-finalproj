@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /*
@@ -69,7 +72,11 @@ public class ViewSellData {
         }
         backButton.addActionListener( (ActionEvent Event) -> {
             system.setState(1);
-            system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(ViewSellData.class.getName()).log(Level.SEVERE, null, ex);
+            }
             viewFrame.dispose();
         });
         viewFrame.add(backButton);

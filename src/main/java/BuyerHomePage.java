@@ -1,7 +1,10 @@
 
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -58,17 +61,29 @@ public class BuyerHomePage {
         productListings.setBounds(333,100,600,20);
         yourAccount.addActionListener((ActionEvent event) -> {
                 system.setState(3);
+            try {
                 system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(BuyerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 buyerHomeFrame.dispose();
         });
         checkout.addActionListener((ActionEvent event) -> {
                 system.setState(4);
+            try {
                 system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(BuyerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 buyerHomeFrame.dispose();
         });
         logOutButton.addActionListener((ActionEvent event) ->{
                 system.setState(0);
+            try {
                 system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(BuyerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 buyerHomeFrame.dispose();
         });
         buyerHomeFrame.add(logOutButton);

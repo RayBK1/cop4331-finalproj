@@ -1,6 +1,9 @@
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -43,7 +46,11 @@ public class CheckoutPage {
         }
         discount.addActionListener( (ActionEvent event) ->{
              system.setState(7);
-             system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(CheckoutPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
              viewFrame.dispose();
         });
         /*pay.addActionListener( (ActionEvent event) ->{
@@ -55,7 +62,11 @@ public class CheckoutPage {
         });*/
         backButton.addActionListener( (ActionEvent event) -> {
             system.setState(1);
-            system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(CheckoutPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
             viewFrame.dispose();
         });
         backButton.setBounds(600,0,200,50);

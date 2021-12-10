@@ -1,6 +1,9 @@
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -60,26 +63,42 @@ public class SellerHomePage {
             logOutButton.setBounds(500,740,300,20);
             logOutButton.addActionListener((ActionEvent event) ->{
                     system.setState(0);
-                    system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(SellerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                     sellerHomeFrame.dispose();
             });
             sellerHomeFrame.add(logOutButton);
             
             addProductButton.addActionListener((ActionEvent event) ->{
                 system.setState(6);
+            try {
                 system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(SellerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 sellerHomeFrame.dispose();
             });
             
             viewSellDataButton.addActionListener((ActionEvent event) ->{
                 system.setState(5);
+            try {
                 system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(SellerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 sellerHomeFrame.dispose();
             });
             
             yourAccount.addActionListener((ActionEvent event) -> {
                    system.setState(3);
-                   system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(SellerHomePage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                    sellerHomeFrame.dispose();
            });
             sellerHomeFrame.add(viewSellDataButton);

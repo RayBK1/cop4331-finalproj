@@ -1,5 +1,8 @@
 
 import java.awt.event.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /*
@@ -33,7 +36,11 @@ public class LoginPage2 {
             {
                 system.setUser(u);
                 system.setState(1);
-                system.changeState();
+                try {
+                    system.changeState();
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginPage2.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 loginFrame.dispose();
             }
             else

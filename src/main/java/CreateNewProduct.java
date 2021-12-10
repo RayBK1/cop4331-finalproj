@@ -1,7 +1,13 @@
 
 
 import java.awt.event.ActionEvent;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import static java.lang.Double.parseDouble;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /*
@@ -53,16 +59,25 @@ public class CreateNewProduct {
             Double sellPrice = parseDouble(sellField.getText());
             int quantity = Integer.parseInt(quantityField.getText());
             Product product = new Product(name,"filler",sellPrice, quantity, category, 0, 0, invoice, 0, 0);
-            seller.addToListedProducts(product); 
+            seller.addToListedProducts(product);
+            system.getProductList().add(product);
             system.setState(1);
-            system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(CreateNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+            }
             popUpFrame.dispose();
             
         });
         
         backButton.addActionListener( (ActionEvent event) ->{
             system.setState(1);
-            system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(CreateNewProduct.class.getName()).log(Level.SEVERE, null, ex);
+            }
             popUpFrame.dispose();
         });
         popUpFrame.add(productNameLabel);

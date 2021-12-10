@@ -1,3 +1,9 @@
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -22,7 +28,7 @@ public class ShoppingSystem {
     private static final int CREATE = 6;
     private static final int DISCOUNT = 7;
     
-    public ShoppingSystem(UserList<User> userList)
+    public ShoppingSystem(UserList<User> userList) throws IOException
     {
         
         for (User u:userList)
@@ -50,7 +56,7 @@ public class ShoppingSystem {
         this.state = state;
     }
     
-    public void changeState()
+    public void changeState() throws IOException
     {
         if (state == LOGIN)
             login();
@@ -70,8 +76,11 @@ public class ShoppingSystem {
             discount();
     }
     
-    public void login()
+    public void login() throws FileNotFoundException, IOException
     {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("userList.dat"));
+        out.writeObject(userList);
+        out.close();
         LoginPage2 login = new LoginPage2(userList, this);
     }
     

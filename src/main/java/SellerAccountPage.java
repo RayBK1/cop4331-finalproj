@@ -1,5 +1,8 @@
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,7 +36,11 @@ public class SellerAccountPage {
         
         back.addActionListener((ActionEvent event) -> {
                 system.setState(1);
+            try {
                 system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(SellerAccountPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 sellerAccountFrame.dispose();
         });
 

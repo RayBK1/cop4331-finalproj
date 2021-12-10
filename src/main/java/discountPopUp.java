@@ -1,6 +1,9 @@
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import static java.lang.Double.parseDouble;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /*
@@ -26,7 +29,11 @@ public class discountPopUp {
         discountFrame.add(cancelButton);
         cancelButton.addActionListener((ActionEvent event) -> {
             system.setState(4);
-            system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(discountPopUp.class.getName()).log(Level.SEVERE, null, ex);
+            }
             discountFrame.dispose();
         });
         
@@ -37,7 +44,11 @@ public class discountPopUp {
                s.setDiscount(discount);
             }
            system.setState(4);
-           system.changeState();
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(discountPopUp.class.getName()).log(Level.SEVERE, null, ex);
+            }
            discountFrame.dispose();
         });
         discountLabel.setBounds(100,200,300,50);
