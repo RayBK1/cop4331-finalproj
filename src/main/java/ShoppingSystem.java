@@ -21,7 +21,7 @@ public class ShoppingSystem {
     
     private static final int LOGIN = 0;
     private static final int HOMEPAGE = 1;
-    private static final int CART = 2;
+    private static final int DONE = 2;
     private static final int PROFILE = 3;
     private static final int CHECKOUT = 4;
     private static final int SELLDATA = 5;
@@ -62,8 +62,8 @@ public class ShoppingSystem {
             login();
         else if (state == HOMEPAGE)
             homepage();
-        else if (state == CART)
-            cart();
+        else if (state == DONE)
+            transaction();
         else if (state == PROFILE)
             profile();
         else if (state == CHECKOUT)
@@ -93,12 +93,10 @@ public class ShoppingSystem {
             BuyerHomePage buyerhomepage = new BuyerHomePage((Buyer) this.currentUser,this);
         }
     }
-    
-    public void cart()
-    {
-        
+   
+    public void transaction(){
+        TransactionCompletePopUp transac = new TransactionCompletePopUp(this.currentUser,this);
     }
-    
     public void profile()
     {
         if (this.currentUser.getClass().getSimpleName().equals("Seller")){

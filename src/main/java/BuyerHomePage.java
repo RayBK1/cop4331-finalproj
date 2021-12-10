@@ -21,13 +21,17 @@ public class BuyerHomePage {
     
     JFrame buyerHomeFrame = new JFrame();
     JButton yourAccount = new JButton("Your Account");
-    JButton checkout = new JButton("Checkout");
+    JButton checkout = new JButton("Your Cart");
+    JLabel compare = new JLabel("Sort products by:");
     JLabel welcomeUser = new JLabel();
     JLabel productListings = new JLabel("Available Products");
     JButton logOutButton = new JButton("Log out");
-    LinkedList<Product> productList = new LinkedList<>();
+    ProductList<Product> productList = new ProductList<>();
     int i = 200;
     BuyerHomePage(Buyer user, ShoppingSystem system){
+        for (Product p: system.getProductList()){
+            productList.add(p);
+        }
         for (Product p: system.getProductList()){
             
             JLabel productLabel = new JLabel();
@@ -58,7 +62,51 @@ public class BuyerHomePage {
         yourAccount.setBounds(400,0,400,20);
         logOutButton.setBounds(0,740,400,20);
         checkout.setBounds(400,740,400,20);
-        productListings.setBounds(333,100,600,20);
+        productListings.setBounds(100,50,600,20);
+        compare.setBounds(100,125,200,20);
+        
+        JButton furniture = new JButton("furniture");
+        furniture.setBounds(250,125,150,50);
+        furniture.addActionListener( (ActionEvent event) ->{
+            int k = 100;
+            for (Product p : productList.limitByProductCategory("furniture")){
+                JLabel label = new JLabel();
+                label.setBounds(k, 650, 200, 50);
+                String s = p.getProductName();
+                label.setText(s);
+                buyerHomeFrame.add(label);
+                k += 200;
+            }
+        });
+        buyerHomeFrame.add(furniture);
+        JButton christmas = new JButton("christmas");
+        christmas.setBounds(400,125,150,50);
+        christmas.addActionListener((ActionEvent event) ->{
+            int k = 100;
+            for (Product p : productList.limitByProductCategory("christmas")){
+                JLabel label = new JLabel();
+                label.setBounds(k, 650, 200, 50);
+                String s = p.getProductName();
+                label.setText(s);
+                buyerHomeFrame.add(label);
+                k += 200;
+            }
+        });
+        buyerHomeFrame.add(christmas);
+        JButton lowPrice = new JButton("below 10 dollars");
+        lowPrice.setBounds(550,125,150,50);
+        lowPrice.addActionListener((ActionEvent event) ->{
+            int k = 100;
+            for (Product p : productList.limitByProductPrice(0,10)){
+                JLabel label = new JLabel();
+                label.setBounds(k, 650, 200, 50);
+                String s = p.getProductName();
+                label.setText(s);
+                buyerHomeFrame.add(label);
+                k += 200;
+            }
+        });
+        buyerHomeFrame.add(lowPrice);
         yourAccount.addActionListener((ActionEvent event) -> {
                 system.setState(3);
             try {
@@ -86,6 +134,7 @@ public class BuyerHomePage {
             }
                 buyerHomeFrame.dispose();
         });
+        buyerHomeFrame.add(compare);
         buyerHomeFrame.add(logOutButton);
         buyerHomeFrame.add(productListings);
         buyerHomeFrame.add(welcomeUser);

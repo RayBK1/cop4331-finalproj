@@ -22,9 +22,11 @@ public class Buyer extends User {
     {
         return shoppingCart;
     }
-    
+    public void clearCart(){
+        shoppingCart = new ShoppingCart<>();
+    }
     public void removeItemFromCart(Product product)
     {
-        //this.shoppingCartProducts.remove(product);
+       //future implementation
     }
 }

@@ -47,22 +47,24 @@ public class ViewSellData {
                 sell = 0;
                 cost = 0;
                 profit = 0;
-                if ("Total".equals(button.getText())){
-                    for (Product p: seller.getListedProducts()){
-                        sell += p.getTotalSales();
-                        cost += p.getTotalCosts();
-                    }
-                    profit = sell - cost;
-                }
-                else {
+                if (!("Total".equals(button.getText()))){
                     for (Product p: seller.getListedProducts()){
                         if (p.getProductName() == null ? s == null : p.getProductName().equals(s)){
                             sell += p.getTotalSales();
                             cost += p.getTotalCosts();
+                            profit += sell - cost;
                         }
                     }
-                    
                 }
+                else
+                {
+                    profit = 0;
+                    for (Product p: seller.getListedProducts()){
+                        sell += p.getTotalSales();
+                        cost += p.getTotalCosts();
+                        profit += sell - cost;
+                    }
+                } 
                 sellLabel.setText("Revenue: " + sell);
                 costLabel.setText("Cost: " + cost);
                 profitLabel.setText("Profit: " + profit);

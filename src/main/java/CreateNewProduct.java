@@ -47,9 +47,9 @@ public class CreateNewProduct {
         
         nameField.setBounds(400, 100, 100, 50);
         categoryField.setBounds(400, 200, 100, 50);
-        invoiceField.setBounds(400,300,100,50);
-        sellField.setBounds(400,400,100,50);
-        quantityField.setBounds(400,500,100,50);
+        quantityField.setBounds(400,300,100,50);
+        invoiceField.setBounds(400,400,100,50);
+        sellField.setBounds(400,500,100,50);
         
         createButton.setBounds(300,600,200,50);
         createButton.addActionListener((ActionEvent event) -> {

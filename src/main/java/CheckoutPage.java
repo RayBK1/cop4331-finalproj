@@ -20,7 +20,7 @@ public class CheckoutPage {
     CheckoutPage(User user, ShoppingSystem system){
         Buyer buyer = (Buyer) user;
         JFrame viewFrame = new JFrame();
-        JButton pay = new JButton("Pay");
+        JButton pay = new JButton("Checkout");
         JButton discount = new JButton("Add Discount");
         JLabel totalCost = new JLabel();
         JButton backButton = new JButton("Go back");
@@ -53,13 +53,26 @@ public class CheckoutPage {
             }
              viewFrame.dispose();
         });
-        /*pay.addActionListener( (ActionEvent event) ->{
+        pay.addActionListener( (ActionEvent event) ->{
             for (ShoppingCartEntry s : buyer.getCart()){
-                // add here for (Product p : ShoppingCartEntry s){
-                
+                Product prod = s.getProduct();
+                int quantity = s.getQuantity();
+                prod.subtractProductQuantity(quantity);
+                for (int k = 0; k < quantity; k++){
+                    prod.updateTotalCosts();
+                    prod.updateTotalSales();
                 }
+                prod.updateTotalProfit();
             }
-        });*/
+            buyer.clearCart();
+            system.setState(2);
+            try {
+                system.changeState();
+            } catch (IOException ex) {
+                Logger.getLogger(CheckoutPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            viewFrame.dispose();
+        });
         backButton.addActionListener( (ActionEvent event) -> {
             system.setState(1);
             try {
