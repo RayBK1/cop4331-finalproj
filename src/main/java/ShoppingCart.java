@@ -16,7 +16,7 @@ public class ShoppingCart<E> extends LinkedList<E> {
     public void addItem(Product product, Integer quantity)
     {
         super.add((E) new ShoppingCartEntry(product, quantity));
-        totalCost += (product.getProductPrice() * quantity);
+        this.totalCost += (product.getProductPrice() * quantity);
     }
     
     public void removeItem(Product product)
@@ -54,14 +54,17 @@ public class ShoppingCart<E> extends LinkedList<E> {
     }
     
     public double addCostOfProduct(Product product){
-        totalCost += product.getProductPrice();
-        return totalCost;
+        this.totalCost += product.getProductPrice();
+        return this.totalCost;
     }
     public double changeDiscountToPercent(){
-       discount = discount/100;
-       return discount;
+       this.discount = this.discount/100;
+       return this.discount;
+    }
+    public void setDiscount(double discount){
+        this.discount = discount;
     }
     public double addDiscount(){
-        return totalCost * (1-discount);
+        return this.totalCost = this.totalCost * (1-this.discount);
     }
 }

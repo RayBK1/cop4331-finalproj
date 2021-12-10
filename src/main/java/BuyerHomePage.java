@@ -60,7 +60,7 @@ public class BuyerHomePage {
                 buyerHomeFrame.dispose();
         });
         checkout.addActionListener((ActionEvent event) -> {
-                system.setState(2);
+                system.setState(4);
                 system.changeState();
                 buyerHomeFrame.dispose();
         });

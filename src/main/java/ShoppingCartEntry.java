@@ -13,10 +13,12 @@ import java.io.*;
 public class ShoppingCartEntry implements Serializable {
     private final Product product;
     private int quantity;
+    private double discount;
     public ShoppingCartEntry(Product product, int quantity)
     {
        this.product = product;
        this.quantity = quantity;
+       this.discount = 0;
     }
     
     public Product getProduct()
@@ -24,9 +26,12 @@ public class ShoppingCartEntry implements Serializable {
         return this.product;
     }
     
-    @Override
-    public String toString(){
-        return "Product name: " + this.product + " quantity selected: " + this.quantity;
+    public void setDiscount(double discount){
+        this.discount = discount;
+    }
+    
+    public String String(){
+        return "PRODUCT:" + " " + this.product;
     }
     
      public int getQuantity()

@@ -92,7 +92,8 @@ public class Product implements Serializable {
     }
     @Override
     public String toString(){
-        String string = "Product: " + this.productName + "Quantity: " + this.productQuantity +  "Price: " + this.productSellingPrice;
+        String string = "Product: " + this.productName + " Quantity: " + this.productQuantity +  " Price: "
+                + this.productSellingPrice + " ";
         return string;
     }
 }

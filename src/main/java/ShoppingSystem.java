@@ -20,6 +20,7 @@ public class ShoppingSystem {
     private static final int CHECKOUT = 4;
     private static final int SELLDATA = 5;
     private static final int CREATE = 6;
+    private static final int DISCOUNT = 7;
     
     public ShoppingSystem(UserList<User> userList)
     {
@@ -65,6 +66,8 @@ public class ShoppingSystem {
             selldata();
         else if (state == CREATE)
             create();
+        else if (state == DISCOUNT)
+            discount();
     }
     
     public void login()
@@ -110,5 +113,10 @@ public class ShoppingSystem {
     public void create()
     {
         CreateNewProduct newproduct = new CreateNewProduct(this.currentUser,this);
+    }
+    
+    public void discount()
+    {
+        discountPopUp discount = new discountPopUp(this.currentUser, this);
     }
 }
