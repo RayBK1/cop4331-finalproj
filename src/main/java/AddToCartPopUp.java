@@ -39,6 +39,7 @@ public class AddToCartPopUp {
             else {
                 ShoppingCart<ShoppingCartEntry> cart = user.getCart();
                 cart.addItem(p, quantity);
+                popUpFrame.dispose();
                 }
         });
         cancelButton.addActionListener( (ActionEvent event) -> {

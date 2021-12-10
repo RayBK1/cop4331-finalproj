@@ -24,6 +24,11 @@ public class ShoppingCartEntry implements Serializable {
         return this.product;
     }
     
+    @Override
+    public String toString(){
+        return "Product name: " + this.product + " quantity selected: " + this.quantity;
+    }
+    
      public int getQuantity()
      {
          return this.quantity;

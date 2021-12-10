@@ -99,7 +99,7 @@ public class ShoppingSystem {
     
     public void checkout()
     {
-       // CheckoutPage checkout = new CheckoutPage(this.currentUser, this,)
+       CheckoutPage checkout = new CheckoutPage(this.currentUser, this);
     }
     
     public void selldata()

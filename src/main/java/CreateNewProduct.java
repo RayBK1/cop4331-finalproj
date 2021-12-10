@@ -61,6 +61,8 @@ public class CreateNewProduct {
         });
         
         backButton.addActionListener( (ActionEvent event) ->{
+            system.setState(1);
+            system.changeState();
             popUpFrame.dispose();
         });
         popUpFrame.add(productNameLabel);
