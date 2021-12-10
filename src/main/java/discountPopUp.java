@@ -36,13 +36,16 @@ public class discountPopUp {
            for (ShoppingCartEntry s : buyer.getCart()){
                s.setDiscount(discount);
             }
+           system.setState(4);
+           system.changeState();
+           discountFrame.dispose();
         });
         discountLabel.setBounds(100,200,300,50);
         discountField.setBounds(400,200,50,50);
         cancelButton.setBounds(0,500,300,50);
         discountButton.setBounds(300,500,300,50);
         discountFrame.add(discountField);
-        discountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        discountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         discountFrame.setSize(600,600);
         discountFrame.setLayout(null);
         discountFrame.setVisible(true);

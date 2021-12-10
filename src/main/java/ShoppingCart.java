@@ -15,7 +15,7 @@ public class ShoppingCart<E> extends LinkedList<E> {
     
     public void addItem(Product product, Integer quantity)
     {
-        super.add((E) new ShoppingCartEntry(product, quantity));
+        super.add((E) new ShoppingCartEntry(product, quantity, discount));
         this.totalCost += (product.getProductPrice() * quantity);
     }
     

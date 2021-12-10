@@ -22,6 +22,7 @@ public class SellerHomePage {
     JLabel productListings = new JLabel("Your Listings");
     JButton addProductButton = new JButton("Add a product");
     JButton viewSellDataButton = new JButton("View Sell Data");
+    JButton logOutButton = new JButton("Log out");
     int i = 200;
     LinkedList<Product> productList = new LinkedList<>();
     SellerHomePage (User user, ShoppingSystem system){
@@ -54,8 +55,15 @@ public class SellerHomePage {
             welcomeUser.setBounds(0,0,600,20);
             yourAccount.setBounds(400,0,400,20);
             productListings.setBounds(333,100,600,20);
-            addProductButton.setBounds(400,740,400,20);
-            viewSellDataButton.setBounds(0,740,400,20);
+            addProductButton.setBounds(250,740,250,20);
+            viewSellDataButton.setBounds(0,740,250,20);
+            logOutButton.setBounds(500,740,300,20);
+            logOutButton.addActionListener((ActionEvent event) ->{
+                    system.setState(0);
+                    system.changeState();
+                    sellerHomeFrame.dispose();
+            });
+            sellerHomeFrame.add(logOutButton);
             
             addProductButton.addActionListener((ActionEvent event) ->{
                 system.setState(6);

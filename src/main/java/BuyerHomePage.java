@@ -21,6 +21,7 @@ public class BuyerHomePage {
     JButton checkout = new JButton("Checkout");
     JLabel welcomeUser = new JLabel();
     JLabel productListings = new JLabel("Available Products");
+    JButton logOutButton = new JButton("Log out");
     LinkedList<Product> productList = new LinkedList<>();
     int i = 200;
     BuyerHomePage(Buyer user, ShoppingSystem system){
@@ -52,6 +53,7 @@ public class BuyerHomePage {
         welcomeUser.setText("Welcome, " + user.getUsername());
         welcomeUser.setBounds(0,0,600,20);
         yourAccount.setBounds(400,0,400,20);
+        logOutButton.setBounds(0,740,400,20);
         checkout.setBounds(400,740,400,20);
         productListings.setBounds(333,100,600,20);
         yourAccount.addActionListener((ActionEvent event) -> {
@@ -64,11 +66,17 @@ public class BuyerHomePage {
                 system.changeState();
                 buyerHomeFrame.dispose();
         });
+        logOutButton.addActionListener((ActionEvent event) ->{
+                system.setState(0);
+                system.changeState();
+                buyerHomeFrame.dispose();
+        });
+        buyerHomeFrame.add(logOutButton);
         buyerHomeFrame.add(productListings);
         buyerHomeFrame.add(welcomeUser);
         buyerHomeFrame.add(yourAccount);
         buyerHomeFrame.add(checkout);
-        buyerHomeFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        buyerHomeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         buyerHomeFrame.setSize(800,800);
         buyerHomeFrame.setLayout(null);
         buyerHomeFrame.setVisible(true);

@@ -52,7 +52,7 @@ public class AddToCartPopUp {
         popUpFrame.add(addButton);
         popUpFrame.add(cancelButton);
         
-        popUpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        popUpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         popUpFrame.setSize(600,600);
         popUpFrame.setLayout(null);
         popUpFrame.setVisible(true);

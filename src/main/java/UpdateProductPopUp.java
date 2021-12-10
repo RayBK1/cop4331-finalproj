@@ -57,7 +57,7 @@ public class UpdateProductPopUp {
         popUpFrame.add(cancelButton);
         popUpFrame.add(updateButton);
         
-        popUpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        popUpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         popUpFrame.setSize(600,600);
         popUpFrame.setLayout(null);
         popUpFrame.setVisible(true);  

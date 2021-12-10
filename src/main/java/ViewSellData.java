@@ -76,7 +76,7 @@ public class ViewSellData {
         viewFrame.add(sellLabel);
         viewFrame.add(costLabel);
         viewFrame.add(profitLabel);
-        viewFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         viewFrame.setSize(800,800);
         viewFrame.setLayout(null);
         viewFrame.setVisible(true);

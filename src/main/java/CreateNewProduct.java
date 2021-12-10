@@ -79,7 +79,7 @@ public class CreateNewProduct {
         
         popUpFrame.add(createButton);
         popUpFrame.add(backButton);
-        popUpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        popUpFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         popUpFrame.setSize(600,800);
         popUpFrame.setLayout(null);
         popUpFrame.setVisible(true);

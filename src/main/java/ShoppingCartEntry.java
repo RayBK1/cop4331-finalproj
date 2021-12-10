@@ -14,11 +14,11 @@ public class ShoppingCartEntry implements Serializable {
     private final Product product;
     private int quantity;
     private double discount;
-    public ShoppingCartEntry(Product product, int quantity)
+    public ShoppingCartEntry(Product product, int quantity, double discount)
     {
        this.product = product;
        this.quantity = quantity;
-       this.discount = 0;
+       this.discount = discount;
     }
     
     public Product getProduct()
@@ -29,7 +29,9 @@ public class ShoppingCartEntry implements Serializable {
     public void setDiscount(double discount){
         this.discount = discount;
     }
-    
+    public double getDiscount(){
+        return this.discount;
+    }
     public String String(){
         return "PRODUCT:" + " " + this.product;
     }

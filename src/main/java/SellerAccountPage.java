@@ -57,7 +57,7 @@ public class SellerAccountPage {
         sellerAccountFrame.add(accountIDLabel);
         sellerAccountFrame.add(yourAccountID);
         sellerAccountFrame.add(back);
-        sellerAccountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        sellerAccountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         sellerAccountFrame.setSize(800,800);
         sellerAccountFrame.setLayout(null);
         sellerAccountFrame.setVisible(true);
